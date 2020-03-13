@@ -1,0 +1,17 @@
+h1 {
+    color: green;
+    font-size: 100px;
+    font-family: fantasy;
+    text-align: center;
+}
+
+p {
+    color: navy;
+    font-family: sans-serif;
+}
+
+body {
+    width: 500px;
+    height: 1000px;
+    background: url(imagenes/fondomatrix.jpg) no-repeat center top;
+}
