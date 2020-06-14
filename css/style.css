@@ -1,17 +1,40 @@
-h1 {
-    color: green;
-    font-size: 100px;
-    font-family: fantasy;
-    text-align: center;
-}
-
-p {
-    color: navy;
-    font-family: sans-serif;
-}
-
 body {
-    width: 500px;
-    height: 1000px;
-    background: url(imagenes/fondomatrix.jpg) no-repeat center top;
+    background: url(../imagenes/fondomatrix.jpg);
+}
+
+#contenedorsuperior {
+    left: 30%;
+    width: 40%;
+    height: 100px;
+    position: relative;
+}
+
+#subtitulos {
+    left: 10%;
+    width: 80%;
+    height: 100px;
+    position: relative;
+}
+
+.titulo {
+    left: 5%;
+    text-align: center;
+    position: relative;
+}
+
+.titulovideo {
+    top: -5%;
+    position: relative;
+}
+
+.titulogif {
+    top: -5%;
+    left: 20%;
+    position: relative;
+}
+
+.titulomusica {
+    top: -10%;
+    left: 40%;
+    position: relative;
 }
