@@ -27,12 +27,12 @@
 
         <img class="titulovideo" src="imagenes/videos.gif" alt="">
 
-
-
         <img class="titulogif" src="imagenes/gif.gif" alt="">
 
         <img class="titulomusica" src="imagenes/musica.gif" alt="">
+
     </div>
+
 
 
     <div class="video">
@@ -41,12 +41,61 @@
     </div>
 
 
-    <div class="musica">
 
-        <audio src="musica/Dr. STONE - Ending Full『LIFE』by Rude-α.mp3 " controls="controls " type="audio/mpeg " preload="preload ">
-    </audio>
+    <div class="lista-reproduccion">
+
+        <script>
+            function cambiarTrack(track) {
+                var path = track.getAttribute("path")
+                viejo_audio = document.getElementById("reproductor")
+                audio_padre = viejo_audio.parentNode
+                audio_padre.removeChild(viejo_audio)
+                nuevo_audio = document.createElement("audio")
+                nuevo_audio.setAttribute("id", "reproductor")
+                nuevo_audio.setAttribute("controls", "controls")
+                    // nuevo_audio.setAttribute("autoplay", "autoplay")
+                source = document.createElement("source")
+                source.setAttribute("src", path)
+                source.setAttribute("type", "audio/mpeg")
+                source.setAttribute("id", "reproductorSource")
+                nuevo_audio.appendChild(source)
+                audio_padre.appendChild(nuevo_audio)
+            }
+
+            function cargarReproductor() {
+                var select = document.getElementById("selectTrack")
+                var path = select.options[0].getAttribute("path")
+                nuevo_audio = document.createElement("audio")
+                nuevo_audio.setAttribute("id", "reproductor")
+                nuevo_audio.setAttribute("controls", "controls")
+                source = document.createElement("source")
+                source.setAttribute("src", path)
+                source.setAttribute("type", "audio/mpeg")
+                source.setAttribute("id", "reproductorSource")
+                nuevo_audio.appendChild(source)
+                padre = document.getElementById("reproductorBox")
+                padre.appendChild(nuevo_audio)
+            }
+        </script>
+        <div id="reproductorBox"></div>
+        <select id="selectTrack" multiple onchange="cambiarTrack(this.options[this.selectedIndex]);">
+<option path="/musica/Playlist/[Electro Swing] Jungle Book - I Wanna Be Like You (Sim Gretina Remix).mp3">I Wanna be like you</option>
+<option path="/musica/Playlist/Nightcore - Rockefeller Street.mp3">Nightcore - Rockefeller Street</option>
+<option path="/musica/Playlist/Star Wars - 'Cantina Band' (Electro Swing Remix).mp3">Star Wars - Cantina Band</option>
+<option path="/musica/Playlist/NOMA - Brain Power.mp3">NOMA - Brain Power</option>
+<option path="/musica/Playlist/Zombie (Mix Cut).mp3">Zombie (Mix Cut)</option>
+<option path="/musica/Playlist/Susumu Hirasawa - Parade.mp3">Susumu Hirasawa - Parade</option>
+<option path="/musica/Playlist/BIGWAVE - Emotional Prism.mp3">BIGWAVE - Emotional Prism</option>
+<option path="/musica/Playlist/Mr Saxobeat (Ryan Enzed Remix).mp3">Mr Saxobeat (Ryan Enzed Remix)</option>
+<option path="/musica/Playlist/JoJo  - Golden Wind.mp3">JoJo  - Golden Wind</option>
+<option path="/musica/Playlist/Aaron Smith - Dancin (KRONO Remix).mp3">Aaron Smith - Dancin</option>
+</select>
+        <script>
+            cargarReproductor();
+        </script>
+
+
     </div>
-
 
     <div class="gif">
 
@@ -54,12 +103,15 @@
 
     </div>
 
-    <div class="youtube">
 
-        <iframe src="http://www.youtube.com/embed/videoseries?list=PLppqRuQh-fvCnbVqdpZw1iPBfnxFu6cdh " frameborder="0 " allowfullscreen>
-    
-        </iframe>
+    <div class="java">
+
+        <img src="imagenes/java_con_sombrero_verde_intento_liviano.png" alt="">
+
     </div>
+
+
+
 
 </body>
 

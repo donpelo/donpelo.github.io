@@ -1,5 +1,6 @@
 body {
     background: url(../imagenes/fondomatrix.jpg);
+    background-size: cover;
 }
 
 #contenedorsuperior {
@@ -37,4 +38,43 @@ body {
     top: -10%;
     left: 40%;
     position: relative;
+}
+
+.video {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    left: 5%;
+}
+
+.lista-reproduccion {
+    position: relative;
+    width: 270px;
+    top: -300px;
+    left: 70%;
+}
+
+.gif {
+    position: relative;
+    width: 400px;
+    height: 240px;
+    left: 35%;
+    top: -495px;
+}
+
+.java {
+    position: relative;
+    top: -370px;
+    left: 12%;
+    height: 340px;
+    width: 1150px;
+}
+
+.java img {
+    position: relative;
+    width: 1150px;
+}
+
+#selectTrack {
+    height: 165px;
 }
