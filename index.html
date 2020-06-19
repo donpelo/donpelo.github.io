@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="css/style.css" />
     <meta name="viewport" content="width-device-width,initial-scale-1.0">
+    <script src="/js/jquery-1.10.2.min.js"></script>
     <title>
         La pagina de Santiago
     </title>
@@ -22,15 +23,11 @@
 
     </div>
 
-    <br><br>
+
     <div class="contenedordos" id="subtitulos">
-
         <img class="titulovideo" src="imagenes/videos.gif" alt="">
-
         <img class="titulogif" src="imagenes/gif.gif" alt="">
-
         <img class="titulomusica" src="imagenes/musica.gif" alt="">
-
     </div>
 
 
@@ -38,6 +35,32 @@
     <div class="video">
         <video src="videos/Agumon Digievolución Portuguesa.mp4 " controls="controls " type="video/mp4 " preload="preload ">
     </video>
+    </div>
+
+    <div class="reproductor-bonito">
+
+
+
+        <div id="main">
+            <div id="image">
+                <img src="/imagenes/Star_Wars_The_Rise_of_Skywalker.png" />
+            </div>
+            <div id="player">
+                <div id="songTitle">Musica</div>
+                <div id="buttons">
+                    <button id="pre" onclick="pre()"><img src="/imagenes/Pre.png" height="90%" width="90%"/></button>
+                    <button id="play" onclick="playOrPauseSong()"><img src="/imagenes/Pause.png"/></button>
+                    <button id="next" onclick="next()"><img src="/imagenes/Next.png" height="90%" width="90%"/></button>
+                </div>
+
+                <div id="seek-bar">
+                    <div id="fill"></div>
+                    <div id="handle"></div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 
@@ -115,7 +138,70 @@
 
 </body>
 
+<script type="text/javascript">
+    var songs = ["/musica/reproductor2/Star.mp3", "/musica/reproductor2/Dr.mp3", "/musica/reproductor2/doro.mp3"];
+    var poster = ["/imagenes/Star_Wars_The_Rise_of_Skywalker.png", "/imagenes/Dr.jpg", "/imagenes/doro.jpg"];
 
+    var songTitle = document.getElementById("songTitle");
+    var fillBar = document.getElementById("fill");
+
+    var song = new Audio();
+    var currentSong = 0; // it point to the current song
+
+    window.onload = playSong; // it will call the function playSong when window is load
+
+    function playSong() {
+
+        song.src = songs[currentSong]; //set the source of 0th song 
+
+        songTitle.textContent = songs[currentSong]; // set the title of song
+
+        song.play(); // play the song
+    }
+
+    function playOrPauseSong() {
+
+        if (song.paused) {
+            song.play();
+            $("#play img").attr("src", "/imagenes/Pause.png");
+        } else {
+            song.pause();
+            $("#play img").attr("src", "/imagenes/Play.png");
+        }
+    }
+
+    song.addEventListener('timeupdate', function() {
+
+        var position = song.currentTime / song.duration;
+
+        fillBar.style.width = position * 100 + '%';
+    });
+
+
+    function next() {
+
+        currentSong++;
+        if (currentSong > 2) {
+            currentSong = 0;
+        }
+        playSong();
+        $("#play img").attr("src", "/imagenes/Pause.png");
+        $("#image img").attr("src", poster[currentSong]);
+        $("#bg img").attr("src", poster[currentSong]);
+    }
+
+    function pre() {
+
+        currentSong--;
+        if (currentSong < 0) {
+            currentSong = 2;
+        }
+        playSong();
+        $("#play img").attr("src", "/imagenes/Pause.png");
+        $("#image img").attr("src", poster[currentSong]);
+        $("#bg img").attr("src", poster[currentSong]);
+    }
+</script>
 
 
 </html>
